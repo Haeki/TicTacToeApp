@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">TicTacToeGame</string>
+    <string name="win">Gewonnen!</string>
+    <string name="draw">Unentschieden</string>
+    <string name="winP1">Spieler 1 gewinnt!</string>
+    <string name="winP2">Spieler 2 gewinnt!</string>
+    <string name="loose">Verloren!</string>
+</resources>
