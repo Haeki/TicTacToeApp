@@ -36,21 +36,18 @@
             <com.haeki.ticTacToeGame.CustomImgButton
                 android:layout_width="96dp"
                 android:layout_height="96dp"
-                android:id="@+id/imageButton11"
                 android:onClick="updateButton"
                 android:elevation="0dp" />
 
             <com.haeki.ticTacToeGame.CustomImgButton
                 android:layout_width="96dp"
                 android:layout_height="96dp"
-                android:onClick="updateButton"
-                android:id="@+id/imageButton12" />
+                android:onClick="updateButton" />
 
             <com.haeki.ticTacToeGame.CustomImgButton
                 android:layout_width="96dp"
                 android:layout_height="96dp"
-                android:onClick="updateButton"
-                android:id="@+id/imageButton13" />
+                android:onClick="updateButton" />
 
         </TableRow>
 
@@ -61,20 +58,17 @@
             <com.haeki.ticTacToeGame.CustomImgButton
                 android:layout_width="96dp"
                 android:layout_height="96dp"
-                android:onClick="updateButton"
-                android:id="@+id/imageButton21" />
+                android:onClick="updateButton" />
 
             <com.haeki.ticTacToeGame.CustomImgButton
                 android:layout_width="96dp"
                 android:layout_height="96dp"
-                android:onClick="updateButton"
-                android:id="@+id/imageButton22" />
+                android:onClick="updateButton" />
 
             <com.haeki.ticTacToeGame.CustomImgButton
                 android:layout_width="96dp"
                 android:layout_height="96dp"
-                android:onClick="updateButton"
-                android:id="@+id/imageButton23" />
+                android:onClick="updateButton" />
 
         </TableRow>
 
@@ -83,7 +77,6 @@
             android:layout_height="match_parent">
 
             <com.haeki.ticTacToeGame.CustomImgButton
-                android:id="@+id/imageButton31"
                 android:onClick="updateButton"
                 android:layout_width="96dp"
                 android:layout_height="96dp" />
@@ -91,14 +84,12 @@
             <com.haeki.ticTacToeGame.CustomImgButton
                 android:layout_width="96dp"
                 android:layout_height="96dp"
-                android:onClick="updateButton"
-                android:id="@+id/imageButton32" />
+                android:onClick="updateButton" />
 
             <com.haeki.ticTacToeGame.CustomImgButton
                 android:layout_width="96dp"
                 android:layout_height="96dp"
-                android:onClick="updateButton"
-                android:id="@+id/imageButton33" />
+                android:onClick="updateButton" />
         </TableRow>
 
     </TableLayout>
