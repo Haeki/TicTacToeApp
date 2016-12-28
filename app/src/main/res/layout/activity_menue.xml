@@ -16,22 +16,10 @@
         android:id="@+id/button"
         android:onClick="startSinglePlayer"
         android:textSize="40sp"
-        android:layout_above="@+id/button2"
+        android:nestedScrollingEnabled="false"
+        android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="53dp"
-        android:layout_alignParentEnd="true"
-        android:nestedScrollingEnabled="false" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Connect Bluetooth"
-        android:id="@+id/button3"
-        android:onClick="connectBluetooth"
-        android:textSize="40sp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="72dp"
+        android:layout_marginTop="31dp"
         android:layout_alignParentEnd="true" />
 
     <Button
@@ -41,7 +29,31 @@
         android:id="@+id/button2"
         android:onClick="startMultiPlayer"
         android:textSize="40sp"
-        android:layout_centerVertical="true"
+        android:layout_marginBottom="38dp"
+        android:layout_above="@+id/button3"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true" />
+
+    <Button
+        android:text="Statistik"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button4"
+        android:textSize="40sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="25dp"
+        android:layout_alignParentEnd="true"
+        android:onClick="showStats" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Connect Bluetooth"
+        android:id="@+id/button3"
+        android:onClick="connectBluetooth"
+        android:textSize="40sp"
+        android:layout_marginBottom="40dp"
+        android:layout_above="@+id/button4"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

@@ -7,10 +7,12 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Set;
@@ -32,6 +34,12 @@ public class MenueActivity extends AppCompatActivity {
 
     public void startMultiPlayer(View view) {
         startGame(false);
+    }
+
+    public void showStats(View view) {
+        SharedPreferences settings = getSharedPreferences("stats", MODE_PRIVATE);
+        Toast toast = Toast.makeText(getApplicationContext(), Integer.toString(settings.getInt("gameCount", 0)), Toast.LENGTH_SHORT);
+        toast.show();
     }
 
     public void connectBluetooth(View view) {

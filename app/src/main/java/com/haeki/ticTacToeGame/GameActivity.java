@@ -2,6 +2,7 @@ package com.haeki.ticTacToeGame;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -289,6 +291,10 @@ public class GameActivity extends AppCompatActivity {
                 gameOverText.setText(R.string.winP2);
             }
         }
+        SharedPreferences settings = getSharedPreferences("stats", MODE_PRIVATE);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putInt("gameCount", (settings.getInt("gameCount", 0) + 1));
+        editor.commit();
 
         crossfade();
     }
