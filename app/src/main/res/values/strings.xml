@@ -6,4 +6,11 @@
     <string name="winP1">Player 1 wins!</string>
     <string name="winP2">Player 2 wins!</string>
     <string name="title_activity_stats">Stats</string>
+    <string name="resetStats">Reset Statistics</string>
+    <string name="gamesStat">Games</string>
+    <string name="winStat">Wins</string>
+    <string name="looseStat">Looses</string>
+    <string name="drawStat">Draws</string>
+    <string name="winP1Stat">Player 1 Wins</string>
+    <string name="winP2Stat">Player 2 Wins</string>
 </resources>

@@ -21,118 +21,285 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <TableLayout
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="bottom"
-        android:layout_marginTop="?android:attr/actionBarSize">
+        android:layout_marginTop="?android:attr/actionBarSize"
+        android:orientation="vertical">
 
-        <TableRow
+        <TextView
+            android:id="@+id/singlePlayerText"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp" >
+            android:layout_height="wrap_content"
+            android:text="Singleplayer"
+            android:textColor="@android:color/black"
+            android:textSize="30sp"
+            android:textStyle="normal|bold" />
 
-            <TextView
-                android:text="TextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView"
-                android:textSize="30sp"
-                android:textColor="@android:color/black"
-                tools:text="Anzahl an Spielen:" />
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal">
 
-            <Space android:layout_height="wrap_content"
-                android:layout_width="40dp" />
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp">
 
-            <TextView
-                android:text="ddd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView2"
-                android:textColor="@android:color/black"
-                android:textSize="30sp" />
+                <TextView
+                    android:id="@+id/spGamesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/gamesStat"
+                    android:textColor="@android:color/black"
+                    android:textSize="25sp" />
 
-        </TableRow>
+                <Space
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content" />
 
-        <TableRow
+                <TextView
+                    android:id="@+id/spGameCountValueText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="X"
+                    android:textColor="@android:color/black"
+                    android:textSize="30sp"
+                    tools:ignore="HardcodedText" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/spWinText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/winStat"
+                    android:textColor="@android:color/black"
+                    android:textSize="25sp" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/spWinCountValueText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="X"
+                    android:textColor="@android:color/black"
+                    android:textSize="30sp"
+                    tools:ignore="HardcodedText" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/spLooseText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/looseStat"
+                    android:textColor="@android:color/black"
+                    android:textSize="25sp" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/spLooseCountValueText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="X"
+                    android:textColor="@android:color/black"
+                    android:textSize="30sp"
+                    tools:ignore="HardcodedText" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/spDrawText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/drawStat"
+                    android:textColor="@android:color/black"
+                    android:textSize="25sp" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/spDrawCountValueText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="X"
+                    android:textColor="@android:color/black"
+                    android:textSize="30sp"
+                    tools:ignore="HardcodedText" />
+            </TableRow>
+        </TableLayout>
+
+        <Button
+            android:id="@+id/spResetButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:onClick="resetStats"
+            android:text="@string/resetStats"
+            android:textSize="20sp"
+            app:layout_anchorGravity="center_vertical|left" />
+
+        <Space
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp">
+            android:layout_height="15dp" />
 
-            <TextView
-                android:text="Gewonnen:"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView3"
-                android:textSize="30sp"
-                android:textColor="@android:color/black"
-                tools:text="Gewonnen:" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:text="ddd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView4"
-                android:textColor="@android:color/black"
-                android:textSize="30sp" />
-        </TableRow>
-
-        <TableRow
+        <TextView
+            android:id="@+id/multiPlayerText"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp" >
+            android:layout_height="wrap_content"
+            android:text="Multiplayer"
+            android:textColor="@android:color/black"
+            android:textSize="30sp"
+            android:textStyle="normal|bold" />
 
-            <TextView
-                android:text="Verloren:"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView5"
-                android:textSize="30sp"
-                android:textColor="@android:color/black" />
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal">
 
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp">
 
-            <TextView
-                android:text=""
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView6"
-                android:textColor="@android:color/black"
-                android:textSize="30sp" />
-        </TableRow>
+                <TextView
+                    android:id="@+id/mpGamesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/gamesStat"
+                    android:textColor="@android:color/black"
+                    android:textSize="25sp" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp" >
+                <Space
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content" />
 
-            <TextView
-                android:text="Unentschieden:"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView7"
-                android:textSize="30sp"
-                android:textColor="@android:color/black" />
+                <TextView
+                    android:id="@+id/mpGameCountValueText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="X"
+                    android:textColor="@android:color/black"
+                    android:textSize="30sp"
+                    tools:ignore="HardcodedText" />
 
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+            </TableRow>
 
-            <TextView
-                android:text="ddd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView8"
-                android:textColor="@android:color/black"
-                android:textSize="30sp" />
-        </TableRow>
-    </TableLayout>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp">
 
+                <TextView
+                    android:id="@+id/mpWinText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/winP1Stat"
+                    android:textColor="@android:color/black"
+                    android:textSize="25sp" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/mpWinCountValueText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="X"
+                    android:textColor="@android:color/black"
+                    android:textSize="30sp"
+                    tools:ignore="HardcodedText" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/mpLooseText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/winP2Stat"
+                    android:textColor="@android:color/black"
+                    android:textSize="25sp" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/mpLooseCountValueText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="X"
+                    android:textColor="@android:color/black"
+                    android:textSize="30sp"
+                    tools:ignore="HardcodedText" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/mpDrawText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/drawStat"
+                    android:textColor="@android:color/black"
+                    android:textSize="25sp" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/mpDrawCountValueText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="X"
+                    android:textColor="@android:color/black"
+                    android:textSize="30sp"
+                    tools:ignore="HardcodedText" />
+            </TableRow>
+
+        </TableLayout>
+
+        <Button
+            android:id="@+id/mpResetButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:onClick="resetStats"
+            android:text="@string/resetStats"
+            android:textSize="20sp"
+            app:layout_anchorGravity="center_vertical|left" />
+
+    </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>

@@ -37,9 +37,6 @@ public class MenueActivity extends AppCompatActivity {
     }
 
     public void showStats(View view) {
-        SharedPreferences settings = getSharedPreferences("stats", MODE_PRIVATE);
-        Toast toast = Toast.makeText(getApplicationContext(), Integer.toString(settings.getInt("gameCount", 0)), Toast.LENGTH_SHORT);
-        toast.show();
         Intent intent = new Intent(this, StatsActivity.class);
         startActivity(intent);
     }

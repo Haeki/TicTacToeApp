@@ -5,4 +5,12 @@
     <string name="winP1">Spieler 1 gewinnt!</string>
     <string name="winP2">Spieler 2 gewinnt!</string>
     <string name="loose">Verloren!</string>
+    <string name="resetStats">Statistik Zurücksetzen</string>
+    <string name="title_activity_stats">Statistik</string>
+    <string name="drawStat">Unentschieden:</string>
+    <string name="gamesStat">Spiele:</string>
+    <string name="looseStat">Verloren:</string>
+    <string name="winStat">Gewonnen:</string>
+    <string name="winP1Stat">Spieler 1 Siege</string>
+    <string name="winP2Stat">Spieler 2 Siege</string>
 </resources>

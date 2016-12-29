@@ -12,9 +12,6 @@ import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -276,26 +273,38 @@ public class GameActivity extends AppCompatActivity {
     void gameOver(int player) {
         disableEnableBoard(false);
         TextView gameOverText = (TextView) findViewById(R.id.gameOverText);
-        if(player == 0) {
-            gameOverText.setText(R.string.draw);
-        } else if(singlePlayer) {
+        SharedPreferences settings = getSharedPreferences("stats", MODE_PRIVATE);
+        SharedPreferences.Editor editor = settings.edit();
+
+        if(singlePlayer) {
+            editor.putInt(StatsActivity.SP_GAME_COUNT, (settings.getInt(StatsActivity.SP_GAME_COUNT, 0) + 1));
+            if(player == 0) {
+                editor.putInt(StatsActivity.SP_DRAW_COUNT, (settings.getInt(StatsActivity.SP_DRAW_COUNT, 0) + 1));
+                gameOverText.setText(R.string.draw);
+            }
             if(player == 1) {
+                editor.putInt(StatsActivity.SP_WIN_COUNT, (settings.getInt(StatsActivity.SP_WIN_COUNT, 0) + 1));
                 gameOverText.setText(R.string.win);
             } else if(player == -1) {
+                editor.putInt(StatsActivity.SP_LOOS_COUNT, (settings.getInt(StatsActivity.SP_LOOS_COUNT, 0) + 1));
                 gameOverText.setText(R.string.loose);
             }
         } else {
+            editor.putInt(StatsActivity.MP_GAME_COUNT, (settings.getInt(StatsActivity.MP_GAME_COUNT, 0) + 1));
+            if(player == 0) {
+                editor.putInt(StatsActivity.MP_DRAW_COUNT, (settings.getInt(StatsActivity.MP_DRAW_COUNT, 0) + 1));
+                gameOverText.setText(R.string.draw);
+            }
             if(player == 1) {
+                editor.putInt(StatsActivity.MP_P1_WIN_COUNT, (settings.getInt(StatsActivity.MP_P1_WIN_COUNT, 0) + 1));
                 gameOverText.setText(R.string.winP1);
             } else if(player == -1) {
+                editor.putInt(StatsActivity.MP_P2_WIN_COUNT, (settings.getInt(StatsActivity.MP_P2_WIN_COUNT, 0) + 1));
                 gameOverText.setText(R.string.winP2);
             }
         }
-        SharedPreferences settings = getSharedPreferences("stats", MODE_PRIVATE);
-        SharedPreferences.Editor editor = settings.edit();
-        editor.putInt("gameCount", (settings.getInt("gameCount", 0) + 1));
-        editor.commit();
 
+        editor.commit();
         crossfade();
     }
 
