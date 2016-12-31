@@ -14,7 +14,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Single Player"
+        android:text="@string/singleplayer"
         android:id="@+id/startSpButton"
         android:onClick="startSinglePlayer"
         android:textSize="40sp" />
@@ -22,13 +22,13 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Multi Player"
+        android:text="@string/multiplayer"
         android:id="@+id/startMpButton"
         android:onClick="startMultiPlayer"
         android:textSize="40sp" />
 
     <Button
-        android:text="Statistik"
+        android:text="@string/statistics"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/statsButton"
@@ -41,5 +41,6 @@
         android:text="Connect Bluetooth"
         android:id="@+id/bluetoothButton"
         android:onClick="connectBluetooth"
-        android:textSize="40sp" />
+        android:textSize="40sp"
+        tools:ignore="HardcodedText" />
 </LinearLayout>

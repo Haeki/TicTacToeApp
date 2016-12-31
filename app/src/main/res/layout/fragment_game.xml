@@ -16,13 +16,13 @@
             android:id="@+id/activePlayerText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Spieler am Zug:"
+            android:text="@string/player_turn"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="40sp" />
 
         <ImageView
             android:id="@+id/activePlayerImage"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:src="@drawable/circle_transparent_small"
             android:layout_weight="1" />
@@ -31,7 +31,7 @@
     <TableLayout
         android:id="@+id/gameBoard"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:visibility="visible"
         android:gravity="center_vertical|center_horizontal|center"
         android:layout_weight="1">
@@ -44,7 +44,6 @@
             <com.haeki.ticTacToeGame.CustomImgButton
                 android:layout_width="96dp"
                 android:layout_height="96dp"
-                android:elevation="0dp"
                 android:onClick="updateButton" />
 
             <com.haeki.ticTacToeGame.CustomImgButton

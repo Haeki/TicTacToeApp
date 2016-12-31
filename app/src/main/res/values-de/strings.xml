@@ -13,4 +13,8 @@
     <string name="winStat">Gewonnen:</string>
     <string name="winP1Stat">Spieler 1 Siege</string>
     <string name="winP2Stat">Spieler 2 Siege</string>
+    <string name="multiplayer">Mehrspieler</string>
+    <string name="singleplayer">Einzelspieler</string>
+    <string name="statistics">Statistik</string>
+    <string name="player_turn">Spieler am Zug:</string>
 </resources>

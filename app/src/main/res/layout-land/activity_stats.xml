@@ -28,7 +28,7 @@
                 android:id="@+id/singlePlayerText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Singleplayer"
+                android:text="@string/singleplayer"
                 android:textColor="@android:color/black"
                 android:textSize="30sp"
                 android:textStyle="normal|bold" />
@@ -175,7 +175,7 @@
                 android:id="@+id/multiPlayerText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Multiplayer"
+                android:text="@string/multiplayer"
                 android:textColor="@android:color/black"
                 android:textSize="30sp"
                 android:textStyle="normal|bold" />

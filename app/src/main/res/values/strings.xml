@@ -11,8 +11,12 @@
     <string name="winStat">Wins</string>
     <string name="looseStat">Looses</string>
     <string name="drawStat">Draws</string>
-    <string name="winP1Stat">Player 1 Wins</string>
-    <string name="winP2Stat">Player 2 Wins</string>
+    <string name="winP1Stat">Player 1 Wins:</string>
+    <string name="winP2Stat">Player 2 Wins:</string>
+    <string name="multiplayer">Multiplayer</string>
+    <string name="singleplayer">Singleplayer </string>
+    <string name="statistics">Statistics</string>
+    <string name="player_turn">Current Player:</string>
 
     <!-- TODO: Remove or change this placeholder text -->
 </resources>
