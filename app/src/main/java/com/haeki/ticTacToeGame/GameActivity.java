@@ -2,19 +2,18 @@ package com.haeki.ticTacToeGame;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -31,7 +30,6 @@ public class GameActivity extends AppCompatActivity {
     Random r;
     int animationDuration;
     int turns = 0;
-    Method test;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,11 +39,6 @@ public class GameActivity extends AppCompatActivity {
         singlePlayer = getIntent().getBooleanExtra(MenueActivity.PLAY_MODE, true);
         r = new Random();
         animationDuration = 900;
-        try {
-            test = this.getClass().getMethod("test");
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        }
     }
 
     @Override
@@ -53,6 +46,7 @@ public class GameActivity extends AppCompatActivity {
         super.onStart();
         System.out.println("CREATE VIEW");
         tableLayout = (TableLayout) findViewById(R.id.gameBoard);
+        findViewById(R.id.gameMenueFragment).setVisibility(View.GONE);
 
         fillButtonMap();
         if(singlePlayer) {
@@ -64,110 +58,6 @@ public class GameActivity extends AppCompatActivity {
             }
             updateActivePlayer();
         }
-        try {
-            test.invoke(this,null);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void test() {
-        Log.v("Method Test", "Test");
-    }
-
-    private void crossfade() {
-        View gameOverText = findViewById(R.id.gameOverText);
-        View replayButton = findViewById(R.id.replayButton);
-        View menueButton = findViewById(R.id.menueButton);
-        final View activePlayerText = findViewById(R.id.activePlayerText);
-        final View activePlayerImg = findViewById(R.id.activePlayerImage);
-        final View gameBoard = findViewById(R.id.gameBoard);
-
-        // Set the content view to 0% opacity but visible, so that it is visible
-        // (but fully transparent) during the animation.
-        gameOverText.setAlpha(0f);
-        gameOverText.setVisibility(View.VISIBLE);
-        replayButton.setAlpha(0f);
-        replayButton.setVisibility(View.VISIBLE);
-        menueButton.setAlpha(0f);
-        menueButton.setVisibility(View.VISIBLE);
-
-        // Animate the content view to 100% opacity, and clear any animation
-        // listener set on the view.
-        gameOverText.animate()
-                .alpha(1f)
-                .setDuration(animationDuration)
-                .setListener(null);
-
-        replayButton.animate()
-                .alpha(1f)
-                .setDuration(animationDuration)
-                .setListener(null);
-
-        menueButton.animate()
-                .alpha(1f)
-                .setDuration(animationDuration)
-                .setListener(null);
-
-        // Animate the loading view to 0% opacity. After the animation ends,
-        // set its visibility to GONE as an optimization step (it won't
-        // participate in layout passes, etc.)
-        gameBoard.animate()
-                .alpha(0f)
-                .setDuration(animationDuration)
-                .setListener(new AnimatorListenerAdapter() {
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-                        gameBoard.setVisibility(View.GONE);
-                    }
-                });
-
-        activePlayerText.animate()
-                .alpha(0f)
-                .setDuration(animationDuration)
-                .setListener(new AnimatorListenerAdapter() {
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-                        activePlayerText.setVisibility(View.GONE);
-                    }
-                });
-
-        activePlayerImg.animate()
-                .alpha(0f)
-                .setDuration(animationDuration)
-                .setListener(new AnimatorListenerAdapter() {
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-                        activePlayerImg.setVisibility(View.GONE);
-                    }
-                });
-    }
-
-    void fillButtonMap() {
-        for(int i = 0; i < tableLayout.getChildCount(); i++) {
-            TableRow tableRow = (TableRow) tableLayout.getChildAt(i);
-            for(int j = 0; j < tableRow.getChildCount(); j++) {
-                buttons.put(i + (j*10), (CustomImgButton) tableRow.getChildAt(j));
-            }
-        }
-    }
-
-    CustomImgButton getButton(int key) {
-        return buttons.get(key);
-    }
-
-    CustomImgButton getButton(int row, int col) {
-        return buttons.get(row + (col*10));
-    }
-
-    void backToMenue(View view) {
-        finish();
-    }
-
-    void restartGame(View view) {
-        recreate();
     }
 
     void updateButton(View view) {
@@ -180,26 +70,6 @@ public class GameActivity extends AppCompatActivity {
                 updateActivePlayer();
             }
         }
-    }
-
-    void calcSums() {
-        sumColls = new int[3];
-        for(int i = 0; i < 3; i++) {
-            sumRows[i] = 0;
-            for (int j = 0; j < 3; j++) {
-                CustomImgButton imageButton = getButton(i,j);
-                sumRows[i] += imageButton.getUsingPlayer();
-                sumColls[j] += imageButton.getUsingPlayer();
-            }
-        }
-        sumCross1 = getButton(0,0).getUsingPlayer();
-        sumCross1 += getButton(1,1).getUsingPlayer();
-        sumCross1 += getButton(2,2).getUsingPlayer();
-
-        sumCross2 = getButton(0,2).getUsingPlayer();
-        sumCross2 += getButton(1,1).getUsingPlayer();
-        sumCross2 += getButton(2,0).getUsingPlayer();
-
     }
 
     void checkForWin() {
@@ -246,29 +116,25 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
-    void highlightCross1() {
-        getButton(0,0).setBackgroundColor(Color.GREEN);
-        getButton(1,1).setBackgroundColor(Color.GREEN);
-        getButton(2,2).setBackgroundColor(Color.GREEN);
-    }
-
-    void highlightCross2() {
-        getButton(0,2).setBackgroundColor(Color.GREEN);
-        getButton(1,1).setBackgroundColor(Color.GREEN);
-        getButton(2,0).setBackgroundColor(Color.GREEN);
-    }
-
-    void highlightRow(int rowNumber) {
+    void calcSums() {
+        sumColls = new int[3];
         for(int i = 0; i < 3; i++) {
-            getButton(rowNumber,i).setBackgroundColor(Color.GREEN);
+            sumRows[i] = 0;
+            for (int j = 0; j < 3; j++) {
+                CustomImgButton imageButton = getButton(i,j);
+                sumRows[i] += imageButton.getUsingPlayer();
+                sumColls[j] += imageButton.getUsingPlayer();
+            }
         }
+        sumCross1 = getButton(0,0).getUsingPlayer();
+        sumCross1 += getButton(1,1).getUsingPlayer();
+        sumCross1 += getButton(2,2).getUsingPlayer();
+
+        sumCross2 = getButton(0,2).getUsingPlayer();
+        sumCross2 += getButton(1,1).getUsingPlayer();
+        sumCross2 += getButton(2,0).getUsingPlayer();
     }
 
-    void highlightCollum(int collNumber) {
-        for(int i = 0; i < 3; i++) {
-            getButton(i,collNumber).setBackgroundColor(Color.GREEN);
-        }
-    }
 
     void gameOver(int player) {
         disableEnableBoard(false);
@@ -306,6 +172,78 @@ public class GameActivity extends AppCompatActivity {
 
         editor.commit();
         crossfade();
+    }
+
+    private void crossfade() {
+        System.out.println("Crossfade");
+        final View gameFragment = findViewById(R.id.gameFragment);
+        View gameMenueFragment = findViewById(R.id.gameMenueFragment);
+
+        gameMenueFragment.setAlpha(0f);
+        gameMenueFragment.setVisibility(View.VISIBLE);
+        gameMenueFragment.animate()
+                .alpha(1f)
+                .setDuration(animationDuration)
+                .setListener(null);
+
+        gameFragment.animate()
+                .alpha(0f)
+                .setDuration(animationDuration)
+                .setListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        gameFragment.setVisibility(View.GONE);
+                    }
+                });
+    }
+
+    void fillButtonMap() {
+        for(int i = 0; i < tableLayout.getChildCount(); i++) {
+            TableRow tableRow = (TableRow) tableLayout.getChildAt(i);
+            for(int j = 0; j < tableRow.getChildCount(); j++) {
+                buttons.put(i + (j*10), (CustomImgButton) tableRow.getChildAt(j));
+            }
+        }
+    }
+
+    CustomImgButton getButton(int key) {
+        return buttons.get(key);
+    }
+
+    CustomImgButton getButton(int row, int col) {
+        return buttons.get(row + (col*10));
+    }
+
+    void backToMenue(View view) {
+        finish();
+    }
+
+    void restartGame(View view) {
+        recreate();
+    }
+
+    void highlightCross1() {
+        getButton(0,0).setBackgroundColor(Color.GREEN);
+        getButton(1,1).setBackgroundColor(Color.GREEN);
+        getButton(2,2).setBackgroundColor(Color.GREEN);
+    }
+
+    void highlightCross2() {
+        getButton(0,2).setBackgroundColor(Color.GREEN);
+        getButton(1,1).setBackgroundColor(Color.GREEN);
+        getButton(2,0).setBackgroundColor(Color.GREEN);
+    }
+
+    void highlightRow(int rowNumber) {
+        for(int i = 0; i < 3; i++) {
+            getButton(rowNumber,i).setBackgroundColor(Color.GREEN);
+        }
+    }
+
+    void highlightCollum(int collNumber) {
+        for(int i = 0; i < 3; i++) {
+            getButton(i,collNumber).setBackgroundColor(Color.GREEN);
+        }
     }
 
     void disableEnableBoard(boolean bool) {

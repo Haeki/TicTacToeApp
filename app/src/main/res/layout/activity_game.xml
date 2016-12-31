@@ -4,142 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.haeki.ticTacToeGame.GameActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Spieler am Zug:"
-        android:id="@+id/activePlayerText"
-        android:textSize="40sp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.haeki.ticTacToeGame.Game"
+        android:id="@+id/gameFragment"
+        tools:layout="@layout/fragment_game"
+        class="com.haeki.ticTacToeGame.Game" />
 
-    <TableLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/gameBoard"
-        android:visibility="visible">
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <com.haeki.ticTacToeGame.CustomImgButton
-                android:layout_width="96dp"
-                android:layout_height="96dp"
-                android:onClick="updateButton"
-                android:elevation="0dp" />
-
-            <com.haeki.ticTacToeGame.CustomImgButton
-                android:layout_width="96dp"
-                android:layout_height="96dp"
-                android:onClick="updateButton" />
-
-            <com.haeki.ticTacToeGame.CustomImgButton
-                android:layout_width="96dp"
-                android:layout_height="96dp"
-                android:onClick="updateButton" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <com.haeki.ticTacToeGame.CustomImgButton
-                android:layout_width="96dp"
-                android:layout_height="96dp"
-                android:onClick="updateButton" />
-
-            <com.haeki.ticTacToeGame.CustomImgButton
-                android:layout_width="96dp"
-                android:layout_height="96dp"
-                android:onClick="updateButton" />
-
-            <com.haeki.ticTacToeGame.CustomImgButton
-                android:layout_width="96dp"
-                android:layout_height="96dp"
-                android:onClick="updateButton" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <com.haeki.ticTacToeGame.CustomImgButton
-                android:onClick="updateButton"
-                android:layout_width="96dp"
-                android:layout_height="96dp" />
-
-            <com.haeki.ticTacToeGame.CustomImgButton
-                android:layout_width="96dp"
-                android:layout_height="96dp"
-                android:onClick="updateButton" />
-
-            <com.haeki.ticTacToeGame.CustomImgButton
-                android:layout_width="96dp"
-                android:layout_height="96dp"
-                android:onClick="updateButton" />
-        </TableRow>
-
-    </TableLayout>
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/menueButton"
-        android:src="@drawable/home_icon"
-        app:srcCompat="@drawable/home_icon"
-        android:onClick="backToMenue"
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.haeki.ticTacToeGame.Game"
+        android:id="@+id/gameMenueFragment"
         android:visibility="gone"
-        android:layout_marginStart="29dp"
-        android:layout_below="@+id/gameOverText"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="28dp" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/replayButton"
-        android:src="@drawable/ic_replay_black_36dp"
-        android:onClick="restartGame"
-        android:visibility="gone"
-        android:layout_marginEnd="29dp"
-        android:layout_below="@+id/gameOverText"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="28dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Unentschieden"
-        android:id="@+id/gameOverText"
-        android:visibility="gone"
-        android:textSize="48sp"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="121dp"
-        android:textAlignment="center" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/activePlayerImage"
-        android:src="@drawable/circle_transparent_small"
-        android:layout_marginRight="5dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="8dp" />
+        tools:layout="@layout/fragment_game_menue"
+        class="com.haeki.ticTacToeGame.GameMenue" />
 
 </RelativeLayout>

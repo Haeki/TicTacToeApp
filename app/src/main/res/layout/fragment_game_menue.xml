@@ -1,0 +1,36 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.haeki.ticTacToeGame.GameMenue">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Unentschieden"
+        android:id="@+id/gameOverText"
+        android:textSize="48sp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/replayButton"
+        android:src="@drawable/ic_replay_black_36dp"
+        android:onClick="restartGame"
+        android:layout_below="@+id/gameOverText"
+        android:layout_alignEnd="@+id/gameOverText" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/menueButton"
+        android:src="@drawable/home_icon"
+        android:onClick="backToMenue"
+        android:layout_below="@+id/gameOverText"
+        android:layout_alignStart="@+id/gameOverText" />
+
+</RelativeLayout>
